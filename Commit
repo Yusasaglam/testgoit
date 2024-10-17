@@ -1,0 +1,39 @@
+Genel terimleri gördüğümüze göre küçük bir örnek yaparak başlayalım.
+
+- Bir dizin oluşturuyoruz ve içerisine girip `git init` komutunu çalıştırıyoruz. Bu dizin içine `think.txt` adlı bir dosya oluşturduktan sonra `git status` ile kontrol ediyoruz.
+
+```bash
+➜  Think git:(master) ✗ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        think.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+- Burada dosyayı oluşturduğunu ve **Untracked** yani takip edilmediğini söylüyor.
+
+- `git add think.txt` diyerek dosyanın takip edilmesini sağladık.
+
+- `git commit -m "First Commit"` diyerek dosyayı commit'lemiş olduk.
+
+```bash
+➜  Think git:(master) ✗ git commit -m "First Commit"
+[master (root-commit) 6130636] First Commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 think.txt
+```
+
+**Not:** `git commit --amend -m "New commit message."`: Commit mesajını yanlış yazdım geri dönmek için
+
+- İlk commitimizi başarılı bir şekilde attık.
+
+- `git log`: Git versiyon kontrol sisteminde yapılan commitleri ve bu commitlerin detaylarını gösteren bir komuttur. Bu komut çalıştırıldığında, tarih sırasına göre tüm commitlerin listesi görüntülenir. Her bir commit, benzersiz bir kimlik numarası (hash) ile tanımlanır ve hangi branch veya tag'de olduğu, kimin yaptığı, ne zaman yapıldığı, ne kadar değişiklik yapıldığı gibi detaylar da görüntülenebilir.
+
+  - `(HEAD -> master)` güncel içerisinde bulunduğumuz branch'i referans alır genelde, genelde de en son commiti söyler bize
+
+- `.gitignore`: Git'in belirtilen dosyaları görmezden gelmesine izin veren bir dosyadır. Bu dosya, Git projesindeki belirli dosyaların veya dosya türlerinin depolanmaması veya takip edilmemesi gerektiği durumlarda kullanılır. Gitignore dosyası, proje kök dizinine yerleştirilir ve adı .gitignore olarak kaydedilir. Bu dosyaya eklenen öğeler, Git'in bunları takip etmesini veya depolamasını engeller. Örneğin, .gitignore dosyasına "node_modules" yazarak, Git'in bu klasörü takip etmesi engellenir ve böylece projenin boyutu azaltılır ve depolama alanı tasarrufu sağlanır. Gitignore dosyaları, farklı diller ve projeler için önceden hazırlanmış şablonlar (template) içeren Gitignore.io gibi kaynaklardan da indirilebilir.

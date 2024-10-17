@@ -1,0 +1,40 @@
+ Git Temelleri
+
+### **Önemli Git Terimleri**
+
+- **Commit:** Git ile yapılan değişikliklerin kaydedildiği bir işlemdir. Bu işlem sayesinde herhangi bir zamanda geriye dönülerek değişiklikler eski haline getirilebilir.
+
+- **Branch:** Projelerin farklı dallara ayrılarak geliştirilebilmesini sağlayan bir özelliktir. Bu sayede projenin farklı özellikleri ayrı ayrı geliştirilebilir ve sonrasında birleştirebiliriz.
+
+- **Repository:** Git'in başlatıldığı klasördür. Bu klasördeki dosyalar ve değişiklikler Git ile kontrol altına alınır.
+
+- **Working Directory (Çalışma Dizini):** Bu, projenin bulunduğu klasördür ve tüm dosyalar burada saklanır. Bu dizindeki dosyaları değiştirir veya yeni dosyalar eklersiniz.
+
+- **Index - Staging Area:** Bu alana bazen *"sahne"* denir. Bu alanda değişiklik yaptığınız dosyalar bulunur, ancak henüz projenin bir parçası değillerdir. Bu, değişiklikleri daha sonra kaydetmek üzere hazırlamak için kullanılan bir ara bölgedir. Yani, dosyalarda yaptığınız değişiklikleri, Git'e kaydetmek istediğinizde buraya eklersiniz.
+
+- **Local Repository:** Bu, Git'in projenin tüm geçmiş sürümlerini ve değişikliklerini sakladığı yere denir. Yani, burası dosyalardaki değişiklikleri kaydettiğiniz yerdir. Local Repository, proje dizininde .git adı verilen bir klasör içinde saklanır. Bu klasör, projenin tam tarihçesini ve Git'in projeyle ilgili diğer verilerini içerir.
+
+- **Upstream Rrepository:** Bir projenin orijinal kaynak kod deposudur. Bu genellikle bir açık kaynak yazılım projesi için bir **GitHub** deposu veya benzeri bir git barındırma servisi olabilir. Fork işlemi yapıldığında, kullanıcının hesabında bir kopya oluşturulur ve bu kopya, orijinal proje ile senkronize edilebilir. Senkronize edildiğinde, kullanıcının kopyası, değişikliklerin yapılmasına, commit edilmesine ve bir **Pull request** gönderilmesine izin verir. Upstream repository, orijinal proje ile senkronize edildiğinde, bu değişikliklerin orijinal projeye dahil edilmesini sağlar. Bu nedenle upstream repository, bir projenin yönetimi ve katkıda bulunulması için önemlidir.
+
+**Yazılanları Görselleştirirsek:**
+
+**Working Directory** -> `git add` -> **Index - Staging Area** -> `git commit` -> **Local Repository** -> `git push` **Upstream Repository**
+
+`git status`: Git'in güncel durumunu gösterir. Bu komut ile hangi branch'te olduğumuz veya hangi dosyaların staging alanında olduğu gibi bilgiler verir.
+
+> `fatal: not a git repository (or any of the parent directories): .git`: Hatası, mevcut klasörün Git deposu olarak başlatılmadığını veya başka bir sebepten dolayı Git ile bağlantının kesildiğini gösterir. Bu hatanın nedeni genellikle git init komutunun yapılmamış olması ya da .git klasörünün silinmiş olmasıdır.
+
+```bash
+➜  Think git:(master) git status
+On branch master # Master branch'indeyiz.
+
+No commits yet # Şimdiye kadar hiç commit yapılmadığını söylüyor.
+
+nothing to commit (create/copy files and use "git add" to track) # Commit edilecek bir şey yok diyor.
+```
+
+`git init`: Bir klasöre Git deposu eklemek için kullanılan bir komuttur. Bu komut, mevcut bir klasörü veya boş bir klasörü bir **Git** deposuna dönüştürür.
+
+- Bu komutu kullanarak bir klasöre **Git** deposu ekledikten sonra, dosyaları **stagelamak (stage)**, **commit (commit)** etmek ve diğer **Git** komutlarını kullanarak değişiklikleri kontrol etmeye başlayabilirsiniz.
+
+- master or main branch Git'in bir projeye başlatılması için kullanılır. Bu komut ile projenin bulunduğu klasöre .git adında bir klasör oluşturulur ve Git projeye başlatılmış olur.

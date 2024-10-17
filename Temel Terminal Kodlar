@@ -1,0 +1,20 @@
+- `ls (List directory contents)`: Bulunduğun dizindeki tüm içerikleri göster.
+- `ls -la (List directory contents and list all)`: Bulunduğun dizideki tüm içerikleri ve gizli içerikleri liste olarka göster.
+- `cd (Change Directory)`: Dizin değiştir.
+- `pwd: (Print Working Directory)`: Çalıştığın dizini göster.
+- `mkdir (Make Directory)`: Dizin oluştur.
+- `clear`: Ekranı temizle.
+- `touch` : Dosya oluşturma.
+- `rm (Remove)` : Silme.
+- `rm -rf (Remove recursive force delete directory)`: Belirtilen dizin içindeki dosya ve dizinleri silmesi ve kullanıcıya onay için soru sormadan silinmesi
+- `cp (Copy)`: Dosya veya dizinleri kopyalamak için kullanılır.
+- `mv (Move)`: Dosya veya dizinleri taşımak veya yeniden adlandırmak için kullanılır.
+- `cat (Concatenate)`: Dosyanın içeriğini ekrana yazdırmak için kullanılır.
+- `head`: Dosyanın ilk birkaç satırını görüntülemek için kullanılır.
+- `tail`: Dosyanın son birkaç satırını görüntülemek için kullanılır.
+- `grep`: Belirtilen bir metni içeren satırları bulmak için kullanılır.
+- `chmod (Change Mode)`: Dosya veya dizinin izinlerini değiştirmek için kullanılır.
+- `sudo (Superuser Do)`: Root kullanıcısı olarak bir komut çalıştırmak için kullanılır.
+- `history`: Daha önce kullanılan komutları listeler.
+
+Bu komutlar, bir dosya sistemiyle çalışırken oldukça yararlıdır. Tabii ki, birçok başka terminal komutu da

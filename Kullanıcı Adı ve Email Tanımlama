@@ -1,0 +1,39 @@
+Kod geliştirme sürecinde birçok insanla birlikte çalışabiliriz. Bu nedenle, kimin hangi kodu yazdığı ve kimin hangi değişiklikleri yaptığı gibi bilgilerin tutulduğu bir sistem kullanmak oldukça önemlidir. **Git**, bu amaç için ideal bir araçtır. Ancak, diğer insanlarla işbirliği yaparken, hangi kullanıcının hangi değişiklikleri yaptığını bilmek için kendi kullanıcı adımızı ve email adresimizi **Git** sistemimize kaydetmemiz gerekmektedir.
+
+Kullanıcı adınızı ve email adresinizi **Git** sistemine kaydetmek oldukça kolaydır. Terminal veya **Git Bash** gibi bir uygulama üzerinde aşağıdaki komutları çalıştırarak bunu yapabilirsiniz:
+
+Kullanıcı adınızı **Git**'in sistemine kayıt etmek için:
+
+> `git config --global user.name "mkdemir"`
+>
+> - `config`: Git konfigürasyon ayarlarını değiştirmek için kullanılır.
+> - `--global`: Bu komutu kullandığınızda, ayarların her yerde geçerli olacağı anlamına gelir.
+> - `user.name`: User adını değiştir.
+> - `git config user.name`: Kullanıcı adınızı kontrol etmek için bu komutu kullanabilirsiniz.
+
+Mail adresinizi **Git**'in sistemine kayıt etmek için:
+
+>`git config --global user.email "mkdemir@mkdemir"`
+>
+> - `user.email`: Git hesabınızda gösterilecek email adresinizi değiştirir.
+> - `git config user.email`: Email adresinizi kontrol etmek için bu komutu kullanabilirsiniz
+
+Yukarıdaki adımları takip ederek kendi kullanıcı adınızı ve email adresinizi **Git** sistemine kaydedebilirsiniz.
+
+**Not:** Git Varsayılan Düzenleyicisini Değiştirme
+
+- **Git**'in varsayılan metin düzenleyicisi, genellikle **Nano** veya **Vim** gibi bir **konsol** editörüdür. Ancak, birçok kullanıcı için bu editörler kullanımı zor veya rahatsız edici olabilir. Neyse ki, **Git**'in default editör ayarlarını değiştirmek oldukça kolaydır.
+
+- Aşağıdaki örneklerde, **Git** varsayılan editörünü değiştirmek için kullanabileceğiniz bazı komutlar verilmiştir:
+
+> - **Vim:** `git config --global core.editor "vim --nofork"`
+> - **Emacs:** `git config --global core.editor emacs`
+> - **Gedit (Linux):** `git config --global core.editor "gedit --wait --new-window"`
+
+Yukarıdaki komutları kullanarak, Git'in default editör ayarlarını değiştirerek kendi tercih ettiğiniz metin düzenleyicisini kullanabilirsiniz.
+
+**Not:** Ön tanımlı olarak ana branch ismi `master` olarak kullanılmaktadır. Eğer bu ana branch ismini değiştirmek isterseniz.
+
+`git config --global init.defaultBranch <name>`
+
+İle değiştirebilirsiniz.
