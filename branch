@@ -1,0 +1,75 @@
+## 3. Git Branch
+
+Branch, Git'te ana projeden ayrılan farklı bir projenin kopyasıdır. Bu, bir projenin farklı sürümlerinin yönetilmesini sağlar. Ana projeden yeni bir dal alarak, o dalda yapılan değişiklikler ana projeyi etkilemez. Böylece birden fazla kişi aynı proje üzerinde çalışırken, farklı dalarda çalışarak kodları yönetebilirler. Ayrıca, farklı özelliklerin geliştirilmesi, hata düzeltmeleri gibi farklı görevleri üstlenebilirler. Branch'ler, daha sonra birleştirilebilir veya silinebilir.
+
+Master branch, ana branch'dir. Ana branch'de gördüğümüz proje yayına alırız.
+
+### **HEAD Nedir**
+
+HEAD, Git'in içinde bulunduğumuz konumu belirten bir referanstır. Genellikle en son commit'i işaret eder. Bu, nerede olduğumuzu ve hangi commit üzerinde çalıştığımızı belirlememizi sağlar.
+
+### **Merge**
+
+Git'te merge, farklı branch'lerin birleştirilmesini sağlayan bir işlem olarak tanımlanır.
+
+- `git branch`: Komutu ile mevcut branch'leri görüntüleyebilirsiniz.
+- `git branch <name>`: Yeni bir branch oluşturmak **`<name>`** kısmına açmak istediğimiz branch adını yazıyoruz. Örnek feat (feature) adlı bir branch açtık.
+- `git switch <branch name>`: Brach'ler arasında geçiş yapmak için kullanıyoruz.
+- `git merge feat`: Komutu ile feat branch'ini master branch'ine birleştirebilirsiniz. Bu işlem sırasında, hangi branch'in içeriğini alacağınızı belirlemek için "theirs" veya "ours" gibi parametreler de kullanabilirsiniz. (Hangisini içeriğe alacaksak onu yazmamız gerekiyor).
+
+Ayrıca, merge işlemi sırasında çakışmaların oluşması durumunda, Git otomatik olarak bir "merge conflict" oluşturur ve kullanıcının bu çakışmaları çözmesini bekler. Bu çakışmaların nasıl çözüleceği, birleştirme işlemi esnasında belirlenir.
+
+Bu şekilde, Git'in merge işlemi ile farklı branch'lerin içeriklerini birleştirerek projenizi geliştirebilirsiniz.
+
+### **Fast Forward**
+
+Fast forwarding, birleştirme işlemi sırasında, kaynak branch'in (genellikle feature branch) değişikliklerinin, hedef branch'e (genellikle master branch) direk olarak uygulanmasıdır. Bu işlem sırasında, herhangi bir çakışma olmadığı ve her iki branch'in de aynı değişiklikleri içerdiği varsayılır.
+
+Örnek olarak, `feat` branch'inde bir dosyanın satırını değiştirdik ve daha sonra `master` branch'ine geri döndük ve `feat` branch'ini `master` ile birleştirmek istedik. Eğer `feat` branch'inin ve `master` branch'inin hiçbir farkı yoksa (yani `master` branch'inin son commit'i, `feat` branch'indeki son commit'e göre önce oluştuysa), bu durumda bir fast forward merge gerçekleşir. Bu durumda, Git, `master` branch'ine, `feat` branch'inin commit'ini ekleyerek günceller.
+
+Örnek bir senaryo:
+
+1. git branch feat: feat branch'ini oluşturduk ve bu branch'e geçtik.
+2. echo "New line" >> file.txt: file.txt dosyasına bir satır ekledik ve commit ettik.
+3. git switch master: master branch'ine geçtik.
+4. git merge feat: feat branch'ini master ile birleştirmek istedik ve bir fast forward merge gerçekleşti. Bu nedenle, file.txt dosyasına eklediğimiz yeni satır, master branch'ine eklendi.
+
+Bu şekilde, fast forward merge, herhangi bir çakışma olmadan farklı branch'leri birleştirmek için kullanılabilir.
+
+### **Merge Conflict**
+
+Merge Conflict, Git branch'leri arasındaki değişikliklerin birleştirilmesi sırasında ortaya çıkan çakışmaları ifade eder. Bir Merge Conflict, aynı dosyanın aynı satırlarında farklı değişikliklerin yapıldığı durumlarda oluşur.
+
+Örneğin, bir ekip aynı dosyanın aynı satırlarını farklı branch'lerde değiştirirse, bu durumda bir Merge Conflict oluşabilir. Merge işlemi sırasında Git, hangi değişiklikleri birleştireceği konusunda kararsız kalabilir.
+
+Bu durumda, Git çakışan dosyaları işaretleyerek, kullanıcının bu dosyalarda çakışan değişiklikleri elle birleştirmesine olanak sağlar. Kullanıcılar, conflict'in olduğu dosyalarda çakışan değişiklikleri elle birleştirerek veya belirli bir sürümü kabul ederek (theirs veya ours seçeneklerini kullanarak) conflict'i çözebilirler.
+
+Örneğin, aşağıdaki örnek merge işlemi sırasında bir Merge Conflict oluştu:
+
+```bash
+➜  Think git:(master) ✗ git merge feature
+Auto-merging myfile.txt
+CONFLICT (content): Merge conflict in myfile.txt
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+Bu durumda, kullanıcının conflict'i çözmesi gerekecektir. Git, conflict'in olduğu dosyaları işaretleyerek kullanıcıya hangi satırlarda çakışma olduğunu gösterir. Kullanıcı, bu satırları elle düzenleyerek veya belirli bir sürümü seçerek conflict'i çözebilir.
+
+```bash
+➜  Think git:(master) ✗ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Changes to be committed:
+
+        modified:   file.txt
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both modified:      file.txt
+
+```
+
+Bu durumda, kullanıcının conflict'i çözmek için öncelikle git status komutu ile hangi dosyaların conflict içerdiğini görmesi gerekmektedir. Daha sonra, conflict içeren dosyaları elle düzenleyerek veya git add komutu ile belirli bir sürümü seçerek conflict'i çözebilir.
