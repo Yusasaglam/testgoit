@@ -1,0 +1,11 @@
+Checkout, belirtilen bir commit'e veya dalın bir önceki commit'ine geri dönmemizi sağlar. Bu işlem sonrasında HEAD işaretçisi, doğrudan commit veya dalı gösterir. Ancak, git checkout komutu ile commit'e geri döndüğümüzde Detached HEAD durumuna düşeriz. Bu durumda, HEAD işaretçisi doğrudan bir commit'i işaret eder ve mevcut konum geçici bir durumdur. Bu nedenle, bir işlem yapmadan önce mutlaka aktif bir dalda çalıştığımızdan emin olmalıyız.
+
+Reattaching HEAD, detached HEAD durumundan kurtulup tekrar bir dal üzerinde çalışmaya devam etmek için kullanılan bir terimdir. Detached HEAD durumunda, HEAD işaretçisi doğrudan bir commit'i gösterir ve herhangi bir dal ile ilişkisi yoktur. Bu durumda, yapacağınız değişiklikler doğrudan commit'e yapılacaktır ve bunları başka bir dalda birleştiremezsiniz.
+
+Reattaching HEAD, yapmış olduğunuz değişiklikleri bir dalda birleştirebilmek için HEAD işaretçisini tekrar bir dala yönlendirmeyi ifade eder. Bu işlemi yapmak için, öncelikle hangi dalda çalışmak istediğinizi belirlemelisiniz. Daha sonra, git checkout komutu kullanarak HEAD işaretçisini o dala yönlendirebilirsiniz.
+
+Örneğin, detached HEAD durumundayken master dalına geri dönmek için şu komutu kullanabilirsiniz:
+
+`git checkout master`
+
+Bu komut, HEAD işaretçisini master dalına yönlendirir ve tekrar master dalında çalışmaya başlamanızı sağlar.

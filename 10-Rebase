@@ -1,0 +1,20 @@
+**Rebase:** Bazı değiştirme
+
+Git'te "rebase" komutu, bir dalı diğerine eklemek için kullanılır ve birleştirme işlemi yaparken diğer dalın değişiklikleri geçerli dala uygulanır. Bu, daha temiz bir Git geçmişi sağlar ve uzun süreli projelerde sıkça kullanılır. Örnek kullanım: git rebase branch-name.
+
+- `git switch feat`
+
+- `git rebase master` : Ama feat'in içerisinde çalıştırıyoruz.
+
+**Not:** Burada tarihi baştan yazıyoruz.
+
+**Örnek:** Bir projemiz var. Bu proje içerisindeki tüm commitleri silmek istiyorum.
+
+1. Öncelikle, projenizin tarihçesindeki hangi commitleri silmek istediğinizi belirleyin. Bu adımı yaparken dikkatli olun ve sadece silmek istediğiniz commitleri seçin.
+2. Silmek istediğiniz commitleri belirledikten sonra, bu commitlerin kimlik numaralarını (hash) alın. Bu işlemi, terminalden `git log` komutunu kullanarak yapabilirsiniz.
+3. Ardından, `git rebase -i` komutunu kullanarak interaktif rebasing işlemine başlayın. Bu işlem, önce belirlediğiniz commitin öncesi olan commitlerin tamamını geçici olarak saklar.
+4. Rebase işlemi sırasında karşınıza bir düzenleme ekranı açılacaktır. Bu ekranda, silmek istediğiniz commitlerin kimlik numaralarını (hash) belirtilen satırlardan silin.
+5. Düzenlemeyi kaydedip kapatın ve rebase işlemini tamamlayın.
+6. Son olarak, `git push --force` komutunu kullanarak, projenizi uzaktaki depoya itin. Ancak, burada dikkatli olun, `--force` parametresi, projenizi uzaktaki depoda bulunan versiyonla tamamen değiştirir. Bu nedenle, projenizi başka kullanıcıların çalıştığı bir ortamda kullanmadan önce, bu işlemi yapmanızı önermiyoruz.
+
+Unutmayın, eski commitleri silmek, projenizin tarihçesini değiştirerek geri dönüşü olmayan bir değişiklik yapar. Bu nedenle, bunu yapmadan önce, nedenini ve sonuçlarını iyi anladığınızdan emin olun.

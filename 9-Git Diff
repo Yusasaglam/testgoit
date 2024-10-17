@@ -1,0 +1,19 @@
+Git versiyon kontrol sistemi ile çalışırken, değişiklikleri görüntülemek için kullanılan bir komuttur. Bu komut, dosya veya dizinler arasındaki farkları gösterir ve değişikliklerin tam olarak neler olduğunu ayrıntılı olarak açıklar.
+
+`git diff` komutunu kullanarak, mevcut çalışma kopyası ve son commit arasındaki farkları görebilirsiniz. Bu, yeni eklenen veya silinen dosyaları, değiştirilen satırları ve dosyaların farklı sürümlerindeki değişiklikleri gösterir.
+
+Ayrıca, `git diff` komutu, farklı branch'ler arasındaki farkları, değiştirilmiş veya silinmiş dosyaları, değiştirilmiş satırları ve farklı sürümlerdeki dosyaları göstermek için kullanılabilir. Bu, birden fazla kişiyle çalışırken, değişiklikleri birbirleriyle karşılaştırma nızı ve senkronize etmenizi sağlar.
+
+- `git diff`
+
+- `git diff HEAD`: Değiştirilmiş veya eklenen dosyaları son commit ile karşılaştırır. "HEAD" son commit'i ifade eder. Bu komutu kullanarak, son commit'ten önceki tüm değişiklikleri görebilirsiniz.
+
+- `git diff <commit1> <commit2>` : Commitler arasındaki farkı görmek için.
+
+- `git diff <branch> <branch2>`: Branchler arasındaki farkı göster.
+
+- `git diff --cached` komutu da kullanılabilir. Bu, "staged" (commit öncesi hazırlanan) değişiklikleri gösterir. Yani, henüz commit etmeden önce, "git add" komutu ile hazırlanmış değişiklikleri gösterir.
+
+Ayrıca, git diff --color-words komutu kullanılarak, değişen kelime veya karakterlerin renkli olarak gösterilmesi sağlanabilir. Bu, değişiklikleri daha ayrıntılı ve kolay anlaşılır hale getirir.
+
+**Not:** Eğer aradaki boşluk sıkıntı çıkarırsa .. koyabilirsiniz.

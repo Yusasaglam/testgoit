@@ -1,0 +1,9 @@
+Reset ve Revert, git'te geçmişe dönmek için kullanılan iki farklı yöntemdir.
+
+- `git reset`: Belirtilen bir commit'e geri dönmeyi sağlar ve bu işlem esnasında commit'ler silinebilir veya korunabilir.
+  - 1. Seçenek: Commit'leri sil değişiklikler kalsın
+  - 2. Seçenek: `git reset --hard  <commit id>` belirtilen commit'e kadar olan tüm commit'leri silersiniz ve geri dönüşü olmayan bir şekilde geçmişe dönersiniz. Bu nedenle, bu komutu kullanırken dikkatli olmak önemlidir.
+
+- `git revert <commit>`: Bu komutu kullandığınızda, belirli bir commit'i geri alırsınız ve bu işlem sonucunda yeni bir commit oluşur. Bu sayede, Git geçmişi değiştirilmez, ancak istenmeyen değişiklikler geri alınmış olur. git revert işlemi sonrasında yapılan commit, geri alınan commit'in tam tersi işlevi görür. Loglar tutuluyor. History bozmadık.
+
+Özetle, git reset komutu geçmişteki değişiklikleri silmenizi sağlar, ancak geri dönüşü olmayan bir şekilde. git revert komutu ise geçmişteki değişiklikleri geri alır ancak Git geçmişi bozulmaz ve yeni bir commit oluşur.

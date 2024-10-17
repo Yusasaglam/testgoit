@@ -1,0 +1,40 @@
+Stash: Saklamak veya depolamak anlamlarını taşır.
+
+Git stash, Git versiyon kontrol sistemi kullanılarak yapılan değişiklikleri geçici olarak kaydetmenizi sağlayan bir özelliktir. Bu, henüz tamamlanmayan bir iş üzerinde çalışırken veya bir dal üzerinde çalışırken aniden başka bir acil işle ilgilenmeniz gerektiğinde özellikle kullanışlıdır.
+
+Ayrıca, git stash komutunu kullanırken, mevcut değişikliklerinizin yanı sıra indekslenmemiş dosyalarınız da kaydedilir. İndekslenmemiş dosyalar, dosyaların sadece bir kısmının değiştirilmesi durumunda ortaya çıkar ve git add komutu ile stagelenmemiş dosyalar olarak tanımlanırlar.
+
+`git stash` komutu, birçok farklı parametrelerle kullanılabilir. Örneğin:
+
+- `git stash list`: Kaydedilen tüm stash'leri listeler.
+- `stash@{0}`: git stash listesi içerisindeki ilk yani en son eklenen geçici değişiklikler listesindeki kaydedilmiş çalışma dizininin (working directory) saklandığı referans adıdır.
+- `git stash apply`: En son kaydedilen stash'i geri yükler.
+- `git stash apply stash@{n}`: Belirtilen numaralı stash'i geri yükler.
+- `git stash drop`: En son kaydedilen stash'i siler.
+- `git stash drop stash@{n}`: Belirtilen numaralı stash'i siler.
+
+Örnek kullanımı aşağıdaki gibi olabilir:
+
+```bash
+->  git stash
+->  git checkout master
+Switched to branch 'master'
+->  # master branch'te başka bir iş yapılır
+->  git stash list
+stash@{0}: WIP on feat: 1234abcd Some unfinished work
+->  git stash apply
+->  # çalışılan dalın üzerindeki işe geri dönülür
+```
+
+Ekstra olarak restore komutunu'da kullabilirsiniz.
+
+- `git restore ilkbolum.txt`: En son commit'te ne durumda isen ben ona döndürür.
+
+### **Pop**
+
+ Git stash pop, geçici olarak saklanan değişiklikleri geri yüklerken, Github ile ilgili bir işlem yapmaz.
+
+- `git stash pop`: komutu, en son kaydedilen stash girdisini alır ve bu değişiklikleri uygular (apply) ve stash havuzundan (stash pool) kaldırır. Yani, pop işlemi stash havuzundan en son eklenen stash girdisini çıkarır ve çalışma dizinindeki değişiklikleri bu girdiye göre günceller. Yani zuladan dışarı atma
+- `git stash list`: Güncel zuladıklarımı verir.
+- `git stash apply stash@{0}`: Komutu, stash havuzundan belirli bir stash girdisini uygulamak (apply) için kullanılır. Burada {0} indeks numarası, stash havuzundaki girdinin sırasını belirtir. Örneğin, stash@{0} en son eklenen stash girdisini ifade eder.
+- `git stash clear`: Komutu ise stash havuzundaki tüm stash girdilerini siler. Bu komutu kullanmadan önce dikkatli olunması gerekir, çünkü stash havuzundaki tüm değişiklikler kalıcı olarak kaybolur.

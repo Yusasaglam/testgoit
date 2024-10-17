@@ -1,0 +1,37 @@
+Verilmeyen kodlar:
+
+ git init:
+    Mevcut bir klasörde Git versiyon kontrolü başlatır. Bu komutu çalıştırdığında, klasörde .git adlı gizli bir dizin oluşturulur; bu dizin, Git'in depo bilgilerini saklar. Yeni bir Git deposu başlatır.
+
+
+
+
+git remote add origin https://github.com/Yusa7474saglam/testgoit.git:
+    Komutu, yerel bir Git deposunu uzaktaki bir depo ile ilişkilendirmek için kullanılır.
+        
+        Komutun açılımı:
+        
+          remote: Bu kelime, uzaktaki bir depo ile ilgili komutları ifade eder. Git, yerel deponun dışında var olan depoları "uzaktan" (remote) olarak tanımlar.
+
+          add: Yeni bir uzaktan depo tanımlamak için kullanılır. Bu, yerel deponuzun hangi uzaktaki depo ile ilişkilendirileceğini belirtir.
+
+          origin: Genellikle uzaktaki deponun varsayılan adı olarak kullanılır. Bu isim, uzaktaki depo ile yerel depo arasındaki ilişkiyi belirtir.
+
+
+
+        
+
+git push -u origin main: 
+    Komutu yerel Git deponuzdaki değişiklikleri uzaktaki bir depoya (genellikle GitHub) göndermek için kullanılır.
+
+        Komutun açıklaması:
+
+          git: Git komutunu belirtir, bu komut satırında Git ile çalıştığınızı gösterir.
+
+          push: Bu, yerel depodaki değişiklikleri uzaktaki depoya göndermek için kullanılan komuttur. Yani, bu komut sayesinde yerel değişikliklerinizi uzaktaki depo ile senkronize edersiniz.
+
+          -u ( --set-upstream  ): Git komutlarında uzaktaki bir depoya dal (branch) göndermenin yanı sıra bu dal ile yerel dal arasında bir ilişki kurmak için kullanılır. Yani yerel dal ile uzaktaki dal arasında bir bağlantı (upstream) kurar. Böylece gelecekte yapacağın git push ve git pull komutlarında uzaktaki dalı belirtmene gerek kalmaz.
+
+          origin: Bu, uzaktaki deponun adı. Genellikle ilk oluşturduğunuz uzaktan depo için varsayılan isimdir.
+
+          main: Genellikle ana dalın adıdır.
